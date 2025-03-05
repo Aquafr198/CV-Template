@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --light-color: #f3f4f6;
+            --dark-color: #1f2937;
+            --text-color: #4b5563;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9fafb;
+            background-image: 
+                radial-gradient(#e0e7ff 1px, transparent 1px),
+                radial-gradient(#e0e7ff 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            padding: 30px;
+        }
+        
+        .cv-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0.4;
+            z-index: 0;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            padding: 5px 10px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.25);
+        }
+        
+        .contact-item i {
+            font-size: 1.1rem;
+        }
+        
+        .main-content {
+            padding: 35px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            color: var(--dark-color);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            color: var(--accent-color);
+            font-size: 1.4rem;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile {
+            background-color: var(--light-color);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            font-style: italic;
+            margin-bottom: 35px;
+            position: relative;
+            border-left: 4px solid var(--accent-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile::before {
+            content: '"';
+            position: absolute;
+            font-size: 5rem;
+            color: rgba(59, 130, 246, 0.2);
+            top: -20px;
+            left: 10px;
+            font-family: serif;
+        }
+
+        .profile::after {
+            content: '"';
+            position: absolute;
+            font-size: 5rem;
+            color: rgba(59, 130, 246, 0.2);
+            bottom: -60px;
+            right: 10px;
+            font-family: serif;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-top: 5px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.05) 25%, transparent 25%, transparent 50%, rgba(59, 130, 246, 0.05) 50%, rgba(59, 130, 246, 0.05) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .skill-category h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem;
+        }
+
+        .skill-category h3 i {
+            color: var(--accent-color);
+            background: rgba(59, 130, 246, 0.1);
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .skills-list {
+            list-style-type: none;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skills-list li {
+            background-color: white;
+            padding: 6px 12px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .skills-list li:hover {
+            transform: scale(1.05);
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .skills-list li i {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+        }
+
+        .skills-list li:hover i {
+            color: white;
+        }
+        
+        .experience-item, .project-item, .education-item {
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border-left: 4px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before, .project-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-color);
+            opacity: 0.1;
+            border-radius: 50%;
+            top: -10px;
+            left: -10px;
+        }
+
+        .experience-item:hover, .project-item:hover, .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .job-title, .project-title, .degree {
+            font-weight: 600;
+            color: var(--dark-color);
+            font-size: 1.1rem;
+        }
+        
+        .company, .project-type, .institution {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 5px;
+        }
+
+        .company i, .project-type i, .institution i {
+            font-size: 0.8rem;
+        }
+        
+        .date {
+            font-size: 0.8rem;
+            color: var(--text-color);
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            background-color: var(--light-color);
+            border-radius: 50px;
+        }
+        
+        .tech-stack {
+            margin-top: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tech {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .tech:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .responsibilities {
+            list-style-type: none;
+        }
+        
+        .responsibilities li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 8px;
+            transition: var(--transition);
+        }
+
+        .responsibilities li:hover {
+            transform: translateX(5px);
+        }
+        
+        .responsibilities li:before {
+            content: "\f0a4";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .responsibilities li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .responsibilities li a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .responsibilities li a i {
+            font-size: 0.8rem;
+        }
+        
+        .languages {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .language {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .language:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .flag {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+        }
+        
+        .language-name {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .language-level {
+            font-size: 0.8rem;
+            color: var(--text-color);
+            margin-top: 5px;
+            padding: 3px 10px;
+            background-color: var(--light-color);
+            border-radius: 50px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        }
+
+        .heart {
+            color: #ff5757;
+            animation: beat 1.2s infinite alternate;
+            display: inline-block;
+            font-size: 1.2rem;
+            margin: 0 5px;
+            text-shadow: 0 0 10px rgba(255, 87, 87, 0.5);
+        }
+
+        @keyframes beat {
+            to { transform: scale(1.3); }
+        }
+
+        .tech-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            color: var(--accent-color);
+        }
+
+        .progress-bar {
+            height: 6px;
+            background-color: var(--light-color);
+            border-radius: 3px;
+            margin-top: 8px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            background-color: rgba(59, 130, 246, 0.1);
+            color: var(--accent-color);
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .credit {
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.8rem;
+            color: var(--text-color);
+            background-color: #f9fafb;
+            font-style: italic;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .credit:hover {
+            opacity: 1;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cv-container {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .section {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.4s; }
+        .section:nth-child(4) { animation-delay: 0.6s; }
+        .section:nth-child(5) { animation-delay: 0.8s; }
+        .section:nth-child(6) { animation-delay: 1s; }
+
+        @media print {
+            body {
+                padding: 0;
+                background-color: white;
+                background-image: none;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+
+            .experience-item, .project-item, .education-item, .skill-category, .language {
+                box-shadow: none;
+                break-inside: avoid;
+            }
+
+            .section {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2.2rem;
+            }
+
+            .job-title {
+                font-size: 1.1rem;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .item-header {
+                flex-direction: column;
+            }
+
+            .date {
+                margin-top: 10px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .language {
+                flex: 1 1 40%;
+            }
+
+            .languages {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <h1>Alex Martin</h1>
+            <div class="job-title">Développeur Frontend & Expert UI/UX</div>
+            <div class="contact-info">
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Lyon, France (Disponible en remote)</div>
+                <div class="contact-item"><i class="fas fa-phone"></i> +33 7 55 66 77 88</div>
+                <div class="contact-item"><i class="fas fa-envelope"></i> contact@alexmartin.dev</div>
+                <div class="contact-item"><i class="fab fa-github"></i> github.com/alexmartin-dev</div>
+                <div class="contact-item"><i class="fas fa-globe"></i> alexmartin.dev</div>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <div class="profile">
+                Développeur passionné par la création d'interfaces utilisateur intuitives et esthétiques. Spécialiste en technologies frontend modernes avec une solide expérience en conception UI/UX. Je cherche à rejoindre une équipe innovante où je pourrai contribuer à créer des expériences digitales exceptionnelles et évolutives.
+            </div>
+            
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-code"></i> Compétences Techniques</h2>
+                
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-laptop-code"></i> Développement Web</h3>
+                        <ul class="skills-list">
+                            <li><i class="fab fa-react"></i>React</li>
+                            <li><i class="fab fa-node-js"></i>Next.js</li>
+                            <li><i class="fab fa-vuejs"></i>Vue.js</li>
+                            <li><i class="fab fa-html5"></i>HTML5</li>
+                            <li><i class="fab fa-css3-alt"></i>CSS3</li>
+                            <li><i class="fab fa-sass"></i>Tailwind</li>
+                            <li><i class="fab fa-js"></i>JavaScript</li>
+                            <li><i class="fab fa-js"></i>TypeScript</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3><i class="fas fa-palette"></i> Design & Outils</h3>
+                        <ul class="skills-list">
+                            <li><i class="fas fa-pencil-ruler"></i>Figma</li>
+                            <li><i class="fab fa-sketch"></i>Sketch</li>
+                            <li><i class="fab fa-git-alt"></i>Git</li>
+                            <li><i class="fab fa-github"></i>GitHub</li>
+                            <li><i class="fas fa-code"></i>VS Code</li>
+                            <li><i class="fas fa-terminal"></i>Terminal</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formation</h2>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="degree">Master en Conception d'Interfaces Numériques</div>
+                            <div class="institution"><i class="fas fa-university"></i> École Supérieure du Digital, Lyon</div>
+                        </div>
+                        <div class="date"><i class="far fa-calendar-alt"></i> 2018 - 2020</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Spécialisation en UX/UI Design et développement frontend</li>
+                        <li>Projet de fin d'études : Conception et développement d'une application mobile de gestion de budget</li>
+                        <li>Mention Bien, prix d'excellence du jury pour le projet final</li>
+                    </ul>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="degree">Licence en Informatique</div>
+                            <div class="institution"><i class="fas fa-university"></i> Université Claude Bernard, Lyon</div>
+                        </div>
+                        <div class="date"><i class="far fa-calendar-alt"></i> 2015 - 2018</div>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Formation généraliste en informatique avec spécialisation progressive en développement web</li>
+                        <li>Participation active à l'association des étudiants en informatique</li>
+                        <li>Organisation de hackathons et d'ateliers de programmation pour les nouveaux étudiants</li>
+                    </ul>
+                </div>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="degree">Certification en Design Thinking & Innovation</div>
+                            <div class="institution"><i class="fas fa-certificate"></i> OpenClassrooms</div>
+                        </div>
+                        <div class="date"><i class="far fa-calendar-alt"></i> 2022</div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech"><i class="fas fa-users"></i> Recherche utilisateur</span>
+                        <span class="tech"><i class="fas fa-lightbulb"></i> Idéation</span>
+                        <span class="tech"><i class="fas fa-pen-fancy"></i> Prototypage</span>
+                        <span class="tech"><i class="fas fa-vial"></i> Tests utilisateurs</span>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Maîtrise des méthodes de conception centrées sur l'utilisateur</li>
+                        <li>Compréhension approfondie du processus de design thinking</li>
+                        <li>Application des principes d'innovation dans la résolution de problèmes complexes</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Expériences Professionnelles</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="job-title">Développeur Frontend Senior</div>
+                            <div class="company"><i class="fas fa-building"></i> Digital Solutions</div>
+                        </div>
+                        <div class="date"><i class="far fa-calendar-alt"></i> Janvier 2021 - Présent</div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech"><i class="fab fa-react"></i> React</span>
+                        <span class="tech"><i class="fab fa-js"></i> TypeScript</span>
+                        <span class="tech"><i class="fab fa-css3"></i> Tailwind CSS</span>
+                        <span class="tech"><i class="fas fa-mobile-alt"></i> Responsive Design</span>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Développement d'interfaces utilisateur modernes et réactives pour des clients de divers secteurs</li>
+                        <li>Mise en place d'un système de design standardisé améliorant l'efficacité de l'équipe de 40%</li>
+                        <li>Collaboration étroite avec les designers UX et les développeurs backend</li>
+                        <li>Mentorat de développeurs juniors et organisation d'ateliers de formation interne</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="job-title">UI/UX Designer & Développeur</div>
+                            <div class="company"><i class="fas fa-building"></i> Créative Web Agency</div>
+                        </div>
+                        <div class="date"><i class="far fa-calendar-alt"></i> Juin 2018 - Décembre 2020</div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech"><i class="fas fa-pencil-ruler"></i> Figma</span>
+                        <span class="tech"><i class="fab fa-html5"></i> HTML/CSS</span>
+                        <span class="tech"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="tech"><i class="fas fa-universal-access"></i> Accessibilité</span>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Conception et développement de sites web pour des PME locales</li>
+                        <li>Réalisation d'audits d'ergonomie et d'accessibilité pour optimiser l'expérience utilisateur</li>
+                        <li>Élaboration d'une méthodologie de travail combinant design et développement</li>
+                        <li>Réalisation de tests utilisateurs pour valider les concepts et améliorer les interfaces</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projets Personnels</h2>
+                
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="project-title">DesignSystem Framework</div>
+                            <div class="project-type"><i class="fas fa-user-cog"></i> Projet Open Source</div>
+                        </div>
+                        <div class="date"><i class="far fa-calendar-alt"></i> 2022 - Présent</div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech"><i class="fab fa-react"></i> React</span>
+                        <span class="tech"><i class="fab fa-js"></i> TypeScript</span>
+                        <span class="tech"><i class="fas fa-cogs"></i> Storybook</span>
+                        <span class="tech"><i class="fas fa-box-open"></i> npm</span>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>Développement d'une bibliothèque de composants UI réutilisables et accessibles</li>
+                        <li>Documentation complète et exemples interactifs via Storybook</li>
+                        <li>Plus de 500 étoiles sur GitHub et une communauté active de contributeurs</li>
+                        <li><a href="https://github.com/alexmartin-dev/designsystem" target="_blank"><i class="fab fa-github"></i> Voir sur GitHub</a></li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="project-title">TaskFlow - Application de gestion de projets</div>
+                            <div class="project-type"><i class="fas fa-laptop-code"></i> Application
